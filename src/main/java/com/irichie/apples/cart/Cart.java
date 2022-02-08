@@ -6,6 +6,7 @@ import com.irichie.apples.user.User;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -56,5 +57,27 @@ public class Cart {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void addItem(Product product) {
+        if(products == null) {
+            products = new ArrayList<>();
+        }
+        products.add(product);
+        if(total == null) {
+            total = new BigDecimal(0);
+        }
+        total = total.add(product.getPrice());
+    }
+
+    public void removeItem(Product product) {
+        if(products == null) {
+            products = new ArrayList<>();
+        }
+        products.remove(product);
+        if(total == null) {
+            total = new BigDecimal(0);
+        }
+        total = total.subtract(product.getPrice());
     }
 }
