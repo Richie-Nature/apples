@@ -1,12 +1,14 @@
 package com.irichie.apples.order;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.irichie.apples.cart.Cart;
 import com.irichie.apples.product.Product;
 import com.irichie.apples.user.User;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "user_order")
@@ -59,5 +61,13 @@ public class Order {
 
     public void setTotal(BigDecimal total) {
         this.total = total;
+    }
+
+    public static Order createFromCart(Cart cart) {
+        Order order = new Order();
+        order.setProducts(cart.getProducts().stream().collect(Collectors.toList()));
+        order.setTotal(cart.getTotal());
+        order.setUser(cart.getUser());
+        return order;
     }
 }
