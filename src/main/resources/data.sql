@@ -1,0 +1,2 @@
+insert into product (name, price, description) values ('Brown leather shoes', 4.99, '2022 In vogue Oxfords suede shoes');
+insert into product (name, price, description) values ('Smart watch', 1.75, 'Smart watch to help you pause time');
