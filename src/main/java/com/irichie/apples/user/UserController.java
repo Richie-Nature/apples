@@ -44,12 +44,16 @@ public class UserController {
 //        logger.info("{} attempts to create account", user.getUsername());
 
         User user = new User();
-        user.setUsername(request.getUsername());
         Cart cart = new Cart();
         cartService.create(cart);
+
+
+        user.setUsername(request.getUsername());
         user.setCart(cart);
         user.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
-        userService.create(user);
+
+        User savedUser = userService.create(user);
+        System.out.println(savedUser);
         return ResponseEntity.ok(user);
     }
 
