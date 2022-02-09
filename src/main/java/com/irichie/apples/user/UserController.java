@@ -38,20 +38,33 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody UserRequestDTO request) {
-        User user = new User();
-        user.setUsername(request.getUsername());
+        if(!isReqValid(request)) {
+            return ResponseEntity.badRequest().build();
+        }
 //        logger.info("{} attempts to create account", user.getUsername());
 
+        User user = new User();
+        user.setUsername(request.getUsername());
         Cart cart = new Cart();
         cartService.create(cart);
         user.setCart(cart);
-        if(request.getPassword().length() < 8 ||
-                !request.getPassword().equals(request.getConfirmPassword())) {
-//            logger.error("Error with user password {}. Cannot create user", request.getPassword());
-            return ResponseEntity.badRequest().build();
-        }
         user.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
         userService.create(user);
         return ResponseEntity.ok(user);
+    }
+
+    private static Boolean isReqValid(UserRequestDTO request) {
+        if(!new UserRequestDTO().equals(request)) {
+            System.out.println("Enter username, password & setPassword");
+            return false;
+        }
+
+        if(request.getPassword().length() < 8 ||
+                !request.getPassword().equals(request.getConfirmPassword())) {
+            System.out.println("Invalid password");
+            return false;
+        }
+
+        return true;
     }
 }
