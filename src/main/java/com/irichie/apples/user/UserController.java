@@ -42,11 +42,6 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
 //        logger.info("{} attempts to create account", user.getUsername());
-//        if(request.getPassword().length() < 8 ||
-//                !request.getPassword().equals(request.getConfirmPassword())) {
-////            logger.error("Error with user password {}. Cannot create user", request.getPassword());
-//            return ResponseEntity.badRequest().build();
-//        }
 
         User user = new User();
         user.setUsername(request.getUsername());
