@@ -1,0 +1,188 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Cart</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.irichie.apples.cart</a>
+</div>
+
+<h1>Coverage Summary for Class: Cart (com.irichie.apples.cart)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Cart</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    63.6%
+  </span>
+  <span class="absValue">
+    (7/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    47.6%
+  </span>
+  <span class="absValue">
+    (10/21)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.irichie.apples.cart;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.fasterxml.jackson.annotation.JsonProperty;
+<i class="no-highlight">4</i>&nbsp;import com.irichie.apples.product.Product;
+<i class="no-highlight">5</i>&nbsp;import com.irichie.apples.user.User;
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;import javax.persistence.*;
+<i class="no-highlight">8</i>&nbsp;import java.math.BigDecimal;
+<i class="no-highlight">9</i>&nbsp;import java.util.ArrayList;
+<i class="no-highlight">10</i>&nbsp;import java.util.List;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;@Entity
+<b class="fc"><i class="no-highlight">13</i>&nbsp;public class Cart {</b>
+<i class="no-highlight">14</i>&nbsp;    @Id
+<i class="no-highlight">15</i>&nbsp;    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<i class="no-highlight">16</i>&nbsp;    @JsonProperty
+<i class="no-highlight">17</i>&nbsp;    private Long id;
+<i class="no-highlight">18</i>&nbsp;
+<i class="no-highlight">19</i>&nbsp;    @ManyToMany
+<i class="no-highlight">20</i>&nbsp;    @JsonProperty
+<i class="no-highlight">21</i>&nbsp;    private List&lt;Product&gt; products;
+<i class="no-highlight">22</i>&nbsp;
+<i class="no-highlight">23</i>&nbsp;    @OneToOne(mappedBy = &quot;cart&quot;)
+<i class="no-highlight">24</i>&nbsp;    @JsonProperty
+<i class="no-highlight">25</i>&nbsp;    private User user;
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    public List&lt;Product&gt; getProducts() {
+<b class="nc"><i class="no-highlight">28</i>&nbsp;        return products;</b>
+<i class="no-highlight">29</i>&nbsp;    }
+<i class="no-highlight">30</i>&nbsp;
+<i class="no-highlight">31</i>&nbsp;    public void setProducts(List&lt;Product&gt; products) {
+<b class="fc"><i class="no-highlight">32</i>&nbsp;        this.products = products;</b>
+<i class="no-highlight">33</i>&nbsp;    }
+<i class="no-highlight">34</i>&nbsp;
+<i class="no-highlight">35</i>&nbsp;    public User getUser() {
+<b class="nc"><i class="no-highlight">36</i>&nbsp;        return user;</b>
+<i class="no-highlight">37</i>&nbsp;    }
+<i class="no-highlight">38</i>&nbsp;
+<i class="no-highlight">39</i>&nbsp;    public void setUser(User user) {
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        this.user = user;</b>
+<i class="no-highlight">41</i>&nbsp;    }
+<i class="no-highlight">42</i>&nbsp;
+<i class="no-highlight">43</i>&nbsp;    public BigDecimal getTotal() {
+<b class="nc"><i class="no-highlight">44</i>&nbsp;        return total;</b>
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;    public void setTotal(BigDecimal total) {
+<b class="fc"><i class="no-highlight">48</i>&nbsp;        this.total = total;</b>
+<i class="no-highlight">49</i>&nbsp;    }
+<i class="no-highlight">50</i>&nbsp;
+<i class="no-highlight">51</i>&nbsp;    @JsonProperty
+<i class="no-highlight">52</i>&nbsp;    private BigDecimal total;
+<i class="no-highlight">53</i>&nbsp;
+<i class="no-highlight">54</i>&nbsp;    public Long getId() {
+<b class="fc"><i class="no-highlight">55</i>&nbsp;        return id;</b>
+<i class="no-highlight">56</i>&nbsp;    }
+<i class="no-highlight">57</i>&nbsp;
+<i class="no-highlight">58</i>&nbsp;    public void setId(Long id) {
+<b class="fc"><i class="no-highlight">59</i>&nbsp;        this.id = id;</b>
+<i class="no-highlight">60</i>&nbsp;    }
+<i class="no-highlight">61</i>&nbsp;
+<i class="no-highlight">62</i>&nbsp;    public void addItem(Product product) {
+<b class="fc"><i class="no-highlight">63</i>&nbsp;        if(products == null) {</b>
+<b class="nc"><i class="no-highlight">64</i>&nbsp;            products = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">65</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">66</i>&nbsp;        products.add(product);</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        if(total == null) {</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;            total = new BigDecimal(0);</b>
+<i class="no-highlight">69</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">70</i>&nbsp;        total = total.add(product.getPrice());</b>
+<i class="no-highlight">71</i>&nbsp;    }
+<i class="no-highlight">72</i>&nbsp;
+<i class="no-highlight">73</i>&nbsp;    public void removeItem(Product product) {
+<b class="nc"><i class="no-highlight">74</i>&nbsp;        if(products == null) {</b>
+<b class="nc"><i class="no-highlight">75</i>&nbsp;            products = new ArrayList&lt;&gt;();</b>
+<i class="no-highlight">76</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">77</i>&nbsp;        products.remove(product);</b>
+<b class="nc"><i class="no-highlight">78</i>&nbsp;        if(total == null) {</b>
+<b class="nc"><i class="no-highlight">79</i>&nbsp;            total = new BigDecimal(0);</b>
+<i class="no-highlight">80</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">81</i>&nbsp;        total = total.subtract(product.getPrice());</b>
+<i class="no-highlight">82</i>&nbsp;    }
+<i class="no-highlight">83</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-02-10 11:43</div>
+</div>
+</body>
+</html>
