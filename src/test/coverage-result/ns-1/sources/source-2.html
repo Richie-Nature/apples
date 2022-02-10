@@ -1,0 +1,179 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > CartController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.irichie.apples.cart</a>
+</div>
+
+<h1>Coverage Summary for Class: CartController (com.irichie.apples.cart)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CartController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (2/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    46.7%
+  </span>
+  <span class="absValue">
+    (14/30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.irichie.apples.cart;
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.irichie.apples.product.Product;
+<i class="no-highlight">4</i>&nbsp;import com.irichie.apples.product.ProductService;
+<i class="no-highlight">5</i>&nbsp;import com.irichie.apples.user.User;
+<i class="no-highlight">6</i>&nbsp;import com.irichie.apples.user.UserService;
+<i class="no-highlight">7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i class="no-highlight">8</i>&nbsp;import org.springframework.http.HttpStatus;
+<i class="no-highlight">9</i>&nbsp;import org.springframework.http.ResponseEntity;
+<i class="no-highlight">10</i>&nbsp;import org.springframework.web.bind.annotation.*;
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;import java.util.Optional;
+<i class="no-highlight">13</i>&nbsp;import java.util.stream.IntStream;
+<i class="no-highlight">14</i>&nbsp;
+<i class="no-highlight">15</i>&nbsp;@RestController
+<i class="no-highlight">16</i>&nbsp;@RequestMapping(&quot;/api/cart&quot;)
+<b class="fc"><i class="no-highlight">17</i>&nbsp;public class CartController {</b>
+<i class="no-highlight">18</i>&nbsp;    @Autowired
+<i class="no-highlight">19</i>&nbsp;    private CartService cartService;
+<i class="no-highlight">20</i>&nbsp;
+<i class="no-highlight">21</i>&nbsp;    @Autowired
+<i class="no-highlight">22</i>&nbsp;    private UserService userService;
+<i class="no-highlight">23</i>&nbsp;
+<i class="no-highlight">24</i>&nbsp;    @Autowired
+<i class="no-highlight">25</i>&nbsp;    private ProductService productService;
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;    @PostMapping(&quot;/add&quot;)
+<i class="no-highlight">28</i>&nbsp;    public ResponseEntity&lt;Cart&gt; addToCart(@RequestBody CartRequestDTO request) {
+<b class="fc"><i class="no-highlight">29</i>&nbsp;        User user = userService.findByUsername(request.getUsername());</b>
+<i class="no-highlight">30</i>&nbsp;        Product product;
+<b class="fc"><i class="no-highlight">31</i>&nbsp;        if(user == null) {</b>
+<b class="fc"><i class="no-highlight">32</i>&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+<i class="no-highlight">33</i>&nbsp;        }
+<i class="no-highlight">34</i>&nbsp;        try {
+<b class="fc"><i class="no-highlight">35</i>&nbsp;            product = productService.find(request.getItemId());</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        } catch (UnsupportedOperationException e) {</b>
+<b class="fc"><i class="no-highlight">37</i>&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        }</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;        Cart cart = user.getCart();</b>
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        IntStream.range(0, request.getQuantity())</b>
+<b class="fc"><i class="no-highlight">41</i>&nbsp;                .forEach(i -&gt; cart.addItem(product));</b>
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        request.getQuantity();</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;        cartService.update(cart);</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;        return ResponseEntity.ok(cart);</b>
+<i class="no-highlight">45</i>&nbsp;    }
+<i class="no-highlight">46</i>&nbsp;
+<i class="no-highlight">47</i>&nbsp;    @GetMapping(&quot;/{username}&quot;)
+<i class="no-highlight">48</i>&nbsp;    public ResponseEntity&lt;Cart&gt; getCart(@PathVariable String username) {
+<b class="nc"><i class="no-highlight">49</i>&nbsp;        User user = userService.findByUsername(username);</b>
+<b class="nc"><i class="no-highlight">50</i>&nbsp;        if(user == null) {</b>
+<b class="nc"><i class="no-highlight">51</i>&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+<i class="no-highlight">52</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">53</i>&nbsp;        return ResponseEntity.ok(cartService.findByUser(user));</b>
+<i class="no-highlight">54</i>&nbsp;    }
+<i class="no-highlight">55</i>&nbsp;
+<i class="no-highlight">56</i>&nbsp;    @PostMapping(&quot;/remove&quot;)
+<i class="no-highlight">57</i>&nbsp;    public ResponseEntity&lt;Cart&gt; removeFromCart(@RequestBody CartRequestDTO request) {
+<b class="nc"><i class="no-highlight">58</i>&nbsp;        User user = userService.findByUsername(request.getUsername());</b>
+<i class="no-highlight">59</i>&nbsp;        Product product;
+<b class="nc"><i class="no-highlight">60</i>&nbsp;        if(user == null) {</b>
+<b class="nc"><i class="no-highlight">61</i>&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+<i class="no-highlight">62</i>&nbsp;        }
+<i class="no-highlight">63</i>&nbsp;        try {
+<b class="nc"><i class="no-highlight">64</i>&nbsp;            product = productService.find(request.getItemId());</b>
+<b class="nc"><i class="no-highlight">65</i>&nbsp;        } catch (UnsupportedOperationException e) {</b>
+<b class="nc"><i class="no-highlight">66</i>&nbsp;            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();</b>
+<b class="nc"><i class="no-highlight">67</i>&nbsp;        }</b>
+<b class="nc"><i class="no-highlight">68</i>&nbsp;        Cart cart = user.getCart();</b>
+<b class="nc"><i class="no-highlight">69</i>&nbsp;        IntStream.range(0, request.getQuantity())</b>
+<b class="nc"><i class="no-highlight">70</i>&nbsp;                .forEach(i -&gt; cart.removeItem(product));</b>
+<b class="nc"><i class="no-highlight">71</i>&nbsp;        cartService.update(cart);</b>
+<b class="nc"><i class="no-highlight">72</i>&nbsp;        return ResponseEntity.ok(cart);</b>
+<i class="no-highlight">73</i>&nbsp;    }
+<i class="no-highlight">74</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-02-10 11:43</div>
+</div>
+</body>
+</html>

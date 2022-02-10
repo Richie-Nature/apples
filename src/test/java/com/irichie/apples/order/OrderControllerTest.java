@@ -29,7 +29,6 @@ public class OrderControllerTest {
     private OrderService orderService = mock(OrderService.class);
     private UserService userService = mock(UserService.class);
 
-    private static Order order;
     private static User user;
     private static Cart cart;
 
