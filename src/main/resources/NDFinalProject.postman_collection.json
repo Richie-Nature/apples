@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "b63a7829-8355-4faf-8fc0-ad478845ad13",
+		"name": "NDFinalProject",
+		"description": "Nanodegree solution for e-commerce project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Imoh\", \"password\": \"mypassword\", \"confirmPassword\": \"mypassword\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev_url}}/user/create",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev_url}}/user/id/1",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"user",
+						"id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add To Cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"Imoh\",\r\n    \"itemId\": 1,\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev_url}}/cart/add",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add To Cart",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Imoh\",\r\n    \"itemId\": 1,\r\n    \"quantity\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{dev_url}}/cart/addToCart",
+							"host": [
+								"{{dev_url}}"
+							],
+							"path": [
+								"cart",
+								"addToCart"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 27 Jan 2022 18:56:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Round Widget\",\n            \"price\": 2.99,\n            \"description\": \"A widget that is round\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Round Widget\",\n            \"price\": 2.99,\n            \"description\": \"A widget that is round\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Round Widget\",\n            \"price\": 2.99,\n            \"description\": \"A widget that is round\"\n        },\n        {\n            \"id\": 1,\n            \"name\": \"Round Widget\",\n            \"price\": 2.99,\n            \"description\": \"A widget that is round\"\n        }\n    ],\n    \"user\": {\n        \"id\": 1,\n        \"username\": \"Imoh\"\n    },\n    \"total\": 11.96\n}"
+				}
+			]
+		},
+		{
+			"name": "Submit Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{dev_url}}/orders/new/Imoh",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"orders",
+						"new",
+						"Imoh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"Imoh\", \"password\": \"mypassword\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cart details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev_url}}/cart/Imoh",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"cart",
+						"Imoh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{dev_url}}/orders/history/Imoh",
+					"host": [
+						"{{dev_url}}"
+					],
+					"path": [
+						"orders",
+						"history",
+						"Imoh"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJJbW9oIiwiZXhwIjoxNjQ1Mjc5Nzg5fQ._toAPnGTEGtFrSkYXJJcx6Nvg4tp7x_QgjnRUHMTrw1H70kgpaOGaTeNW5pBwJHlB2w31-bGsJDsYCeh2_JWyQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "dev_url",
+			"value": "localhost:8080/api"
+		}
+	]
+}
