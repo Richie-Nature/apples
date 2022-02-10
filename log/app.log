@@ -27,3 +27,35 @@
 2022-02-10 13:26:18.350  INFO 11988 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-10 13:26:18.354  INFO 11988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-02-10 13:26:18.361  INFO 11988 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-10 15:38:53.582  INFO 18456 --- [main] com.irichie.apples.ApplesApplication     : Starting ApplesApplication using Java 17 on RICHIE-PC with PID 18456 (C:\Users\oboti\Documents\IT\iRichie\Baby-Steps\java-ee\apples\target\classes started by oboti in C:\Users\oboti\Documents\IT\iRichie\Baby-Steps\java-ee\apples)
+2022-02-10 15:38:53.618  INFO 18456 --- [main] com.irichie.apples.ApplesApplication     : No active profile set, falling back to default profiles: default
+2022-02-10 15:38:56.229  INFO 18456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-10 15:38:56.501  INFO 18456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 241 ms. Found 4 JPA repository interfaces.
+2022-02-10 15:38:58.649  INFO 18456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-02-10 15:38:58.671  INFO 18456 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-10 15:38:58.672  INFO 18456 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-10 15:38:58.947  INFO 18456 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-10 15:38:58.948  INFO 18456 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5179 ms
+2022-02-10 15:38:59.764  INFO 18456 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-10 15:38:59.971  INFO 18456 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.33
+2022-02-10 15:39:00.579  INFO 18456 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-10 15:39:00.970  INFO 18456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-10 15:39:01.613  INFO 18456 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-10 15:39:01.689  INFO 18456 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-02-10 15:39:04.072  INFO 18456 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-10 15:39:04.088  INFO 18456 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-10 15:39:06.380  WARN 18456 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-10 15:39:11.245  INFO 18456 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e18e693, org.springframework.security.web.context.SecurityContextPersistenceFilter@67cd84f9, org.springframework.security.web.header.HeaderWriterFilter@12eaa2cd, org.springframework.web.filter.CorsFilter@3d12f065, org.springframework.security.web.authentication.logout.LogoutFilter@3d73cd78, com.irichie.apples.security.JWTAuthenticationFilter@57fc6759, com.irichie.apples.security.JWTAuthenticationVerificationFilter@33a7331, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4ae6451d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@776a7ec6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7aef21bb, org.springframework.security.web.session.SessionManagementFilter@2b06681c, org.springframework.security.web.access.ExceptionTranslationFilter@5c34b0f2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6cb43fd3]
+2022-02-10 15:39:12.610  INFO 18456 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-02-10 15:39:12.692  INFO 18456 --- [main] com.irichie.apples.ApplesApplication     : Started ApplesApplication in 21.051 seconds (JVM running for 25.216)
+2022-02-10 15:39:15.383  INFO 18456 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-10 15:39:15.383  INFO 18456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-02-10 15:39:15.388  INFO 18456 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2022-02-10 15:39:16.028 ERROR 18456 --- [http-nio-8080-exec-1] com.irichie.apples.user.UserController   : Invalid password
+2022-02-10 15:39:16.028 ERROR 18456 --- [http-nio-8080-exec-1] com.irichie.apples.user.UserController   : Imoh account creation failed. Bad request
+2022-02-10 15:51:16.432 ERROR 18456 --- [http-nio-8080-exec-4] com.irichie.apples.user.UserController   : Invalid password
+2022-02-10 15:51:16.432 ERROR 18456 --- [http-nio-8080-exec-4] com.irichie.apples.user.UserController   : Imoh account creation failed. Bad request
+2022-02-10 15:52:16.175 ERROR 18456 --- [http-nio-8080-exec-6] com.irichie.apples.user.UserController   : Invalid password
+2022-02-10 15:52:16.175 ERROR 18456 --- [http-nio-8080-exec-6] com.irichie.apples.user.UserController   : Imoh account creation failed. Bad request
+2022-02-10 15:52:51.610 ERROR 18456 --- [http-nio-8080-exec-8] com.irichie.apples.user.UserController   : Invalid password
+2022-02-10 15:52:51.611 ERROR 18456 --- [http-nio-8080-exec-8] com.irichie.apples.user.UserController   : Imoh account creation failed. Bad request
