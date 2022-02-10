@@ -1,0 +1,272 @@
+Started by user Imoh Obot
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/apples
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+using credential 43054676-e896-48fc-bdeb-9950154c3bb1
+Cloning the remote Git repository
+Cloning repository git@github.com:Richie-Nature/apples.git
+ > git init /var/jenkins_home/workspace/apples # timeout=10
+Fetching upstream changes from git@github.com:Richie-Nature/apples.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.34.1'
+using GIT_SSH to set credentials Ec2 Sssh
+ > git fetch --tags --force --progress -- git@github.com:Richie-Nature/apples.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url git@github.com:Richie-Nature/apples.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 83e3e76bd1277f866a617cdfb07a02c112c34dc0 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 83e3e76bd1277f866a617cdfb07a02c112c34dc0 # timeout=10
+Commit message: "Logs are indexed to splunk"
+ > git rev-list --no-walk 83e3e76bd1277f866a617cdfb07a02c112c34dc0 # timeout=10
+[apples] $ mvn -f ./pom.xml clean compile package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< com.irichie:apples >-------------------------
+[INFO] Building apples 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+Downloading from spring-milestones: https://repo.spring.io/milestone/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.pom
+Progress (1): 2.7/5.2 kB
+Progress (1): 5.2 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.pom (5.2 kB at 85 kB/s)
+Downloading from spring-milestones: https://repo.spring.io/milestone/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom
+Progress (1): 2.7/10 kB
+Progress (1): 5.5/10 kB
+Progress (1): 8.2/10 kB
+Progress (1): 10 kB    
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-plugins/31/maven-plugins-31.pom (10 kB at 495 kB/s)
+Downloading from spring-milestones: https://repo.spring.io/milestone/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.jar
+Progress (1): 2.7/30 kB
+Progress (1): 5.5/30 kB
+Progress (1): 8.2/30 kB
+Progress (1): 11/30 kB 
+Progress (1): 14/30 kB
+Progress (1): 16/30 kB
+Progress (1): 19/30 kB
+Progress (1): 22/30 kB
+Progress (1): 25/30 kB
+Progress (1): 27/30 kB
+Progress (1): 30/30 kB
+Progress (1): 30 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-clean-plugin/3.1.0/maven-clean-plugin-3.1.0.jar (30 kB at 952 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ apples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ apples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ apples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /var/jenkins_home/workspace/apples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ apples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ apples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /var/jenkins_home/workspace/apples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ apples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/apples/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ apples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /var/jenkins_home/workspace/apples/target/test-classes
+[INFO] /var/jenkins_home/workspace/apples/src/test/java/com/irichie/apples/util/TestUtils.java: /var/jenkins_home/workspace/apples/src/test/java/com/irichie/apples/util/TestUtils.java uses or overrides a deprecated API.
+[INFO] /var/jenkins_home/workspace/apples/src/test/java/com/irichie/apples/util/TestUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ apples ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.irichie.apples.ApplesApplicationTests
+18:06:47.903 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+18:06:47.935 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+18:06:48.009 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.irichie.apples.ApplesApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+18:06:48.027 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.irichie.apples.ApplesApplicationTests], using SpringBootContextLoader
+18:06:48.033 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.irichie.apples.ApplesApplicationTests]: class path resource [com/irichie/apples/ApplesApplicationTests-context.xml] does not exist
+18:06:48.034 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.irichie.apples.ApplesApplicationTests]: class path resource [com/irichie/apples/ApplesApplicationTestsContext.groovy] does not exist
+18:06:48.035 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.irichie.apples.ApplesApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+18:06:48.036 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.irichie.apples.ApplesApplicationTests]: ApplesApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:06:48.118 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.irichie.apples.ApplesApplicationTests]
+18:06:48.265 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/jenkins_home/workspace/apples/target/classes/com/irichie/apples/ApplesApplication.class]
+18:06:48.267 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.irichie.apples.ApplesApplication for test class com.irichie.apples.ApplesApplicationTests
+18:06:48.383 [main] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.irichie.apples.ApplesApplicationTests]: using defaults.
+18:06:48.384 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener, org.springframework.security.test.context.support.ReactorContextTestExecutionListener]
+18:06:48.408 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2101b44a, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2cc3ad05, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@710b18a6, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@119020fb, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3d9f6567, org.springframework.test.context.support.DirtiesContextTestExecutionListener@c055c54, org.springframework.test.context.transaction.TransactionalTestExecutionListener@25e2ab5a, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@35e5d0e5, org.springframework.test.context.event.EventPublishingTestExecutionListener@73173f63, org.springframework.security.test.context.support.WithSecurityContextTestExecutionListener@55562aa9, org.springframework.security.test.context.support.ReactorContextTestExecutionListener@655ef322, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7e276594, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3401a114, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5066d65f, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4233e892, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@77d2e85, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3ecd267f]
+18:06:48.413 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@23d1e5d0 testClass = ApplesApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@704f1591 testClass = ApplesApplicationTests, locations = '{}', classes = '{class com.irichie.apples.ApplesApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7ac296f6, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@78fa769e, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@536dbea0, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@3576ddc2, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@6f8e8894, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1700915], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -> true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::      (v2.5.10-SNAPSHOT)
+
+2022-02-10 18:06:48.967  INFO 2766 --- [           main] c.irichie.apples.ApplesApplicationTests  : Starting ApplesApplicationTests using Java 11.0.13 on cdb762df34d9 with PID 2766 (started by root in /var/jenkins_home/workspace/apples)
+2022-02-10 18:06:48.968  INFO 2766 --- [           main] c.irichie.apples.ApplesApplicationTests  : No active profile set, falling back to default profiles: default
+2022-02-10 18:06:49.990  INFO 2766 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-10 18:06:50.054  INFO 2766 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 4 JPA repository interfaces.
+2022-02-10 18:06:50.683  INFO 2766 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-10 18:06:50.732  INFO 2766 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.33
+2022-02-10 18:06:50.870  INFO 2766 --- [           main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-10 18:06:50.986  INFO 2766 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-10 18:06:51.176  INFO 2766 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-10 18:06:51.195  INFO 2766 --- [           main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+Hibernate: 
+    
+    drop table if exists cart CASCADE 
+Hibernate: 
+    
+    drop table if exists cart_products CASCADE 
+Hibernate: 
+    
+    drop table if exists product CASCADE 
+Hibernate: 
+    
+    drop table if exists user CASCADE 
+Hibernate: 
+    
+    drop table if exists user_order CASCADE 
+Hibernate: 
+    
+    drop table if exists user_order_products CASCADE 
+Hibernate: 
+    
+    create table cart (
+       id bigint generated by default as identity,
+        total decimal(19,2),
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table cart_products (
+       cart_id bigint not null,
+        products_id bigint not null
+    )
+Hibernate: 
+    
+    create table product (
+       id bigint generated by default as identity,
+        description varchar(255) not null,
+        name varchar(255) not null,
+        price decimal(19,2) not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table user (
+       id bigint generated by default as identity,
+        password varchar(255) not null,
+        username varchar(255) not null,
+        cart_id bigint,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table user_order (
+       id bigint generated by default as identity,
+        total decimal(19,2),
+        user_id bigint not null,
+        primary key (id)
+    )
+Hibernate: 
+    
+    create table user_order_products (
+       order_id bigint not null,
+        products_id bigint not null
+    )
+Hibernate: 
+    
+    alter table user 
+       add constraint UK_sb8bbouer5wak8vyiiy4pf2bx unique (username)
+Hibernate: 
+    
+    alter table cart_products 
+       add constraint FKhyhnx21758m3wmbi4ps96m0yw 
+       foreign key (products_id) 
+       references product
+Hibernate: 
+    
+    alter table cart_products 
+       add constraint FKnlhjc091rdu9k5c8u9xwp280w 
+       foreign key (cart_id) 
+       references cart
+Hibernate: 
+    
+    alter table user 
+       add constraint FKtqa69bib34k2c0jhe7afqsao6 
+       foreign key (cart_id) 
+       references cart
+Hibernate: 
+    
+    alter table user_order 
+       add constraint FKj86u1x7csa8yd68ql2y1ibrou 
+       foreign key (user_id) 
+       references user
+Hibernate: 
+    
+    alter table user_order_products 
+       add constraint FKjoahqrprh54m9gkcn6gjrak2n 
+       foreign key (products_id) 
+       references product
+Hibernate: 
+    
+    alter table user_order_products 
+       add constraint FKbx754stt215dbsf43lut652e3 
+       foreign key (order_id) 
+       references user_order
+2022-02-10 18:06:51.953  INFO 2766 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-10 18:06:51.963  INFO 2766 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-10 18:06:52.673  WARN 2766 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-10 18:06:53.265  INFO 2766 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47f5ab58, org.springframework.security.web.context.SecurityContextPersistenceFilter@1f95158a, org.springframework.security.web.header.HeaderWriterFilter@28ceb25e, org.springframework.web.filter.CorsFilter@245dbd09, org.springframework.security.web.authentication.logout.LogoutFilter@24a7725d, com.irichie.apples.security.JWTAuthenticationFilter@4a013b23, com.irichie.apples.security.JWTAuthenticationVerificationFilter@7f20dfd5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10820978, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e88e14, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@15651402, org.springframework.security.web.session.SessionManagementFilter@5a24390b, org.springframework.security.web.access.ExceptionTranslationFilter@3922b297, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@40fd1a78]
+2022-02-10 18:06:53.839  INFO 2766 --- [           main] c.irichie.apples.ApplesApplicationTests  : Started ApplesApplicationTests in 5.356 seconds (JVM running for 6.897)
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.262 s - in com.irichie.apples.ApplesApplicationTests
+2022-02-10 18:06:54.069  INFO 2766 --- [ionShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-10 18:06:54.077  INFO 2766 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-10 18:06:54.089  INFO 2766 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- maven-war-plugin:3.3.2:war (default-war) @ apples ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [apples] in [/var/jenkins_home/workspace/apples/target/apples-0.0.1-SNAPSHOT]
+[INFO] Processing war project
+[INFO] Building war: /var/jenkins_home/workspace/apples/target/apples-0.0.1-SNAPSHOT.war
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.5.10-SNAPSHOT:repackage (repackage) @ apples ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15.732 s
+[INFO] Finished at: 2022-02-10T18:06:56Z
+[INFO] ------------------------------------------------------------------------
+[DeployPublisher][INFO] Attempting to deploy 1 war file(s)
+[DeployPublisher][INFO] Deploying /var/jenkins_home/workspace/apples/target/apples-0.0.1-SNAPSHOT.war to container Tomcat 9.x Remote with context apples
+  [/var/jenkins_home/workspace/apples/target/apples-0.0.1-SNAPSHOT.war] is not deployed. Doing a fresh deployment.
+  Deploying [/var/jenkins_home/workspace/apples/target/apples-0.0.1-SNAPSHOT.war]
+Finished: SUCCESS

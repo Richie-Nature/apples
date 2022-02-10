@@ -1,0 +1,285 @@
+-120-54.compute-1.amazonaws.com
+The authenticity of host 'ec2-3-84-120-54.compute-1.amazonaws.com (3.84.120.54)' can't be established.
+ECDSA key fingerprint is SHA256:4iAnbJ3qNUQf7yGhAtqWmB3uVP1KkEmtlB3/O/n7FbM.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added 'ec2-3-84-120-54.compute-1.amazonaws.com,3.84.120.54' (ECDSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+3 package(s) needed for security, out of 6 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-89-215 ~]$ sudo yum update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                   | 3.7 kB  00:00:00
+Resolving Dependencies
+--> Running transaction check
+---> Package ca-certificates.noarch 0:2021.2.50-72.amzn2.0.2 will be updated
+---> Package ca-certificates.noarch 0:2021.2.50-72.amzn2.0.3 will be an update
+---> Package ec2-net-utils.noarch 0:1.5-3.amzn2 will be updated
+---> Package ec2-net-utils.noarch 0:1.6-1.amzn2 will be an update
+---> Package ec2-utils.noarch 0:1.2-45.amzn2 will be updated
+---> Package ec2-utils.noarch 0:1.2-46.amzn2 will be an update
+---> Package openssh.x86_64 0:7.4p1-21.amzn2.0.3 will be updated
+---> Package openssh.x86_64 0:7.4p1-22.amzn2.0.1 will be an update
+---> Package openssh-clients.x86_64 0:7.4p1-21.amzn2.0.3 will be updated
+---> Package openssh-clients.x86_64 0:7.4p1-22.amzn2.0.1 will be an update
+---> Package openssh-server.x86_64 0:7.4p1-21.amzn2.0.3 will be updated
+---> Package openssh-server.x86_64 0:7.4p1-22.amzn2.0.1 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================================
+ Package                              Arch                        Version                                     Repository                       Size
+====================================================================================================================================================
+Updating:
+ ca-certificates                      noarch                      2021.2.50-72.amzn2.0.3                      amzn2-core                      372 k
+ ec2-net-utils                        noarch                      1.6-1.amzn2                                 amzn2-core                       18 k
+ ec2-utils                            noarch                      1.2-46.amzn2                                amzn2-core                       12 k
+ openssh                              x86_64                      7.4p1-22.amzn2.0.1                          amzn2-core                      507 k
+ openssh-clients                      x86_64                      7.4p1-22.amzn2.0.1                          amzn2-core                      650 k
+ openssh-server                       x86_64                      7.4p1-22.amzn2.0.1                          amzn2-core                      456 k
+
+Transaction Summary
+====================================================================================================================================================
+Upgrade  6 Packages
+
+Total download size: 2.0 M
+Is this ok [y/d/N]: y
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+(1/6): ec2-net-utils-1.6-1.amzn2.noarch.rpm                                                                                  |  18 kB  00:00:00
+(2/6): ca-certificates-2021.2.50-72.amzn2.0.3.noarch.rpm                                                                     | 372 kB  00:00:00
+(3/6): ec2-utils-1.2-46.amzn2.noarch.rpm                                                                                     |  12 kB  00:00:00
+(4/6): openssh-7.4p1-22.amzn2.0.1.x86_64.rpm                                                                                 | 507 kB  00:00:00
+(5/6): openssh-clients-7.4p1-22.amzn2.0.1.x86_64.rpm                                                                         | 650 kB  00:00:00
+(6/6): openssh-server-7.4p1-22.amzn2.0.1.x86_64.rpm                                                                          | 456 kB  00:00:00
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                10 MB/s | 2.0 MB  00:00:00
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : openssh-7.4p1-22.amzn2.0.1.x86_64                                                                                               1/12
+  Updating   : openssh-server-7.4p1-22.amzn2.0.1.x86_64                                                                                        2/12
+  Updating   : openssh-clients-7.4p1-22.amzn2.0.1.x86_64                                                                                       3/12
+  Updating   : ca-certificates-2021.2.50-72.amzn2.0.3.noarch                                                                                   4/12
+  Updating   : ec2-utils-1.2-46.amzn2.noarch                                                                                                   5/12
+  Updating   : ec2-net-utils-1.6-1.amzn2.noarch                                                                                                6/12
+  Cleanup    : ca-certificates-2021.2.50-72.amzn2.0.2.noarch                                                                                   7/12
+  Cleanup    : ec2-utils-1.2-45.amzn2.noarch                                                                                                   8/12
+  Cleanup    : ec2-net-utils-1.5-3.amzn2.noarch                                                                                                9/12
+  Cleanup    : openssh-clients-7.4p1-21.amzn2.0.3.x86_64                                                                                      10/12
+  Cleanup    : openssh-server-7.4p1-21.amzn2.0.3.x86_64                                                                                       11/12
+  Cleanup    : openssh-7.4p1-21.amzn2.0.3.x86_64                                                                                              12/12
+  Verifying  : ec2-net-utils-1.6-1.amzn2.noarch                                                                                                1/12
+  Verifying  : ec2-utils-1.2-46.amzn2.noarch                                                                                                   2/12
+  Verifying  : ca-certificates-2021.2.50-72.amzn2.0.3.noarch                                                                                   3/12
+  Verifying  : openssh-7.4p1-22.amzn2.0.1.x86_64                                                                                               4/12
+  Verifying  : openssh-server-7.4p1-22.amzn2.0.1.x86_64                                                                                        5/12
+  Verifying  : openssh-clients-7.4p1-22.amzn2.0.1.x86_64                                                                                       6/12
+  Verifying  : ec2-utils-1.2-45.amzn2.noarch                                                                                                   7/12
+  Verifying  : openssh-7.4p1-21.amzn2.0.3.x86_64                                                                                               8/12
+  Verifying  : ec2-net-utils-1.5-3.amzn2.noarch                                                                                                9/12
+  Verifying  : ca-certificates-2021.2.50-72.amzn2.0.2.noarch                                                                                  10/12
+  Verifying  : openssh-server-7.4p1-21.amzn2.0.3.x86_64                                                                                       11/12
+  Verifying  : openssh-clients-7.4p1-21.amzn2.0.3.x86_64                                                                                      12/12
+
+Updated:
+  ca-certificates.noarch 0:2021.2.50-72.amzn2.0.3     ec2-net-utils.noarch 0:1.6-1.amzn2              ec2-utils.noarch 0:1.2-46.amzn2
+  openssh.x86_64 0:7.4p1-22.amzn2.0.1                 openssh-clients.x86_64 0:7.4p1-22.amzn2.0.1     openssh-server.x86_64 0:7.4p1-22.amzn2.0.1
+
+Complete!
+[ec2-user@ip-172-31-89-215 ~]$ sudo yum install docker
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Resolving Dependencies
+--> Running transaction check
+---> Package docker.x86_64 0:20.10.7-5.amzn2 will be installed
+--> Processing Dependency: runc >= 1.0.0 for package: docker-20.10.7-5.amzn2.x86_64
+--> Processing Dependency: libcgroup >= 0.40.rc1-5.15 for package: docker-20.10.7-5.amzn2.x86_64
+--> Processing Dependency: containerd >= 1.3.2 for package: docker-20.10.7-5.amzn2.x86_64
+--> Processing Dependency: pigz for package: docker-20.10.7-5.amzn2.x86_64
+--> Running transaction check
+---> Package containerd.x86_64 0:1.4.6-7.amzn2 will be installed
+---> Package libcgroup.x86_64 0:0.41-21.amzn2 will be installed
+---> Package pigz.x86_64 0:2.3.4-1.amzn2.0.1 will be installed
+---> Package runc.x86_64 0:1.0.0-2.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+====================================================================================================================================================
+ Package                         Arch                        Version                                   Repository                              Size
+====================================================================================================================================================
+Installing:
+ docker                          x86_64                      20.10.7-5.amzn2                           amzn2extra-docker                       42 M
+Installing for dependencies:
+ containerd                      x86_64                      1.4.6-7.amzn2                             amzn2extra-docker                       24 M
+ libcgroup                       x86_64                      0.41-21.amzn2                             amzn2-core                              66 k
+ pigz                            x86_64                      2.3.4-1.amzn2.0.1                         amzn2-core                              81 k
+ runc                            x86_64                      1.0.0-2.amzn2                             amzn2extra-docker                      3.3 M
+
+Transaction Summary
+====================================================================================================================================================
+Install  1 Package (+4 Dependent packages)
+
+Total download size: 69 M
+Installed size: 285 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/5): libcgroup-0.41-21.amzn2.x86_64.rpm                                                                                    |  66 kB  00:00:00
+(2/5): pigz-2.3.4-1.amzn2.0.1.x86_64.rpm                                                                                     |  81 kB  00:00:00
+(3/5): containerd-1.4.6-7.amzn2.x86_64.rpm                                                                                   |  24 MB  00:00:00
+(4/5): runc-1.0.0-2.amzn2.x86_64.rpm                                                                                         | 3.3 MB  00:00:00
+(5/5): docker-20.10.7-5.amzn2.x86_64.rpm                                                                                     |  42 MB  00:00:01
+----------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                64 MB/s |  69 MB  00:00:01
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : runc-1.0.0-2.amzn2.x86_64                                                                                                        1/5
+  Installing : containerd-1.4.6-7.amzn2.x86_64                                                                                                  2/5
+  Installing : libcgroup-0.41-21.amzn2.x86_64                                                                                                   3/5
+  Installing : pigz-2.3.4-1.amzn2.0.1.x86_64                                                                                                    4/5
+  Installing : docker-20.10.7-5.amzn2.x86_64                                                                                                    5/5
+  Verifying  : containerd-1.4.6-7.amzn2.x86_64                                                                                                  1/5
+  Verifying  : docker-20.10.7-5.amzn2.x86_64                                                                                                    2/5
+  Verifying  : runc-1.0.0-2.amzn2.x86_64                                                                                                        3/5
+  Verifying  : pigz-2.3.4-1.amzn2.0.1.x86_64                                                                                                    4/5
+  Verifying  : libcgroup-0.41-21.amzn2.x86_64                                                                                                   5/5
+
+Installed:
+  docker.x86_64 0:20.10.7-5.amzn2
+
+Dependency Installed:
+  containerd.x86_64 0:1.4.6-7.amzn2      libcgroup.x86_64 0:0.41-21.amzn2      pigz.x86_64 0:2.3.4-1.amzn2.0.1      runc.x86_64 0:1.0.0-2.amzn2
+
+Complete!
+[ec2-user@ip-172-31-89-215 ~]$ sudo usermod -a -G docker $USER
+[ec2-user@ip-172-31-89-215 ~]$ sudo reboot
+Connection to ec2-3-84-120-54.compute-1.amazonaws.com closed by remote host.
+Connection to ec2-3-84-120-54.compute-1.amazonaws.com closed.
+irichie@RICHIE-PC:/mnt/c/Users/oboti/documents/it/src/Udacity-Java-Web-Dev/security and devops/cd+videos$ ssh -i "JAVA_ND_AWS.pem" ec2-user@ec2-3-84-120-54.compute-1.amazonaws.com
+Last login: Thu Feb 10 15:45:55 2022 from 41.190.8.138
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-89-215 ~]$ sudo service docker start
+Redirecting to /bin/systemctl start docker.service
+[ec2-user@ip-172-31-89-215 ~]$ systemctl show --property ActiveState docker
+ActiveState=active
+[ec2-user@ip-172-31-89-215 ~]$ docker run -u root -d --name jenkins -p 8080:8080 -v jenkins-data:/var/jenkins_home -v /var/run/docker.sock:/var/run/
+docker.sock -v "$HOME":/home jenkinsci/blueocean
+Unable to find image 'jenkinsci/blueocean:latest' locally
+latest: Pulling from jenkinsci/blueocean
+59bf1c3509f3: Pull complete
+2399850c81e5: Pull complete
+9bb689cf0473: Pull complete
+6920668afd14: Pull complete
+a9463f127a8b: Pull complete
+f165d1960c36: Pull complete
+6d0b294bf128: Pull complete
+97c7c441c699: Pull complete
+be81f7c5b9bf: Pull complete
+04f779fdfc64: Pull complete
+af53562e8b7e: Pull complete
+da664bc4f7d1: Pull complete
+d83772bd4600: Pull complete
+d53c0244d127: Pull complete
+21fc66f92960: Pull complete
+2911c5a59967: Pull complete
+9b70833181e9: Pull complete
+cd9c7e08180c: Pull complete
+Digest: sha256:d7ca46dc0b9de304a5fa60891a7e5d1522e1bc982b65eaaff989d0640709a099
+Status: Downloaded newer image for jenkinsci/blueocean:latest
+cdb762df34d9cd9ba08b60831b301205682a5317e4bd6f901cff448fe490e2cb
+[ec2-user@ip-172-31-89-215 ~]$ docker ps
+CONTAINER ID   IMAGE                 COMMAND                  CREATED              STATUS              PORTS
+          NAMES
+cdb762df34d9   jenkinsci/blueocean   "/sbin/tini -- /usr/…"   About a minute ago   Up About a minute   0.0.0.0:8080->8080/tcp, :::8080->8080/tcp, 50000/tcp   jenkins
+[ec2-user@ip-172-31-89-215 ~]$ docker exec -it jenkins bash
+bash-5.1# apk add maven
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/main/x86_64/APKINDEX.tar.gz
+fetch https://dl-cdn.alpinelinux.org/alpine/v3.15/community/x86_64/APKINDEX.tar.gz
+(1/21) Installing java-common (0.4-r0)
+(2/21) Installing p11-kit-trust (0.24.0-r1)
+(3/21) Installing java-cacerts (1.0-r1)
+(4/21) Installing openjdk17-jre-headless (17.0.2_p8-r0)
+(5/21) Installing libxau (1.0.9-r0)
+(6/21) Installing libmd (1.0.3-r0)
+(7/21) Installing libbsd (0.11.3-r1)
+(8/21) Installing libxdmcp (1.1.3-r0)
+(9/21) Installing libxcb (1.14-r2)
+(10/21) Installing libx11 (1.7.2-r0)
+(11/21) Installing libxext (1.3.4-r0)
+(12/21) Installing libxi (1.8-r0)
+(13/21) Installing libxrender (0.9.10-r3)
+(14/21) Installing libxtst (1.2.3-r3)
+(15/21) Installing alsa-lib (1.2.5.1-r1)
+(16/21) Installing giflib (5.2.1-r0)
+(17/21) Installing libjpeg-turbo (2.1.2-r0)
+(18/21) Installing lcms2 (2.12-r1)
+(19/21) Installing openjdk17-jre (17.0.2_p8-r0)
+(20/21) Installing openjdk17-jdk (17.0.2_p8-r0)
+(21/21) Installing maven (3.8.3-r0)
+Executing busybox-1.34.1-r3.trigger
+Executing ca-certificates-20191127-r7.trigger
+Executing glibc-bin-2.33-r0.trigger
+/usr/glibc-compat/sbin/ldconfig: /usr/glibc-compat/lib/ld-linux-x86-64.so.2 is not a symbolic link
+
+Executing java-common-0.4-r0.trigger
+OK: 516 MiB in 112 packages
+bash-5.1# ssh-keygen -t rsa
+Generating public/private rsa key pair.
+Enter file in which to save the key (/root/.ssh/id_rsa):
+Created directory '/root/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /root/.ssh/id_rsa
+Your public key has been saved in /root/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:ErfwtKwZmhrP7DT4PmDI6eIXmdogl4TcP06z7POZzR0 root@cdb762df34d9
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|                 |
+|...   o o        |
+|....   B o       |
+|.o..+ o S        |
+|o+== B =         |
+|oo*.X *    E     |
+|.o @.*  = . .    |
+|o.ooOoo+ o .     |
++----[SHA256]-----+
+bash-5.1# cat /root/.ssh/id_rsa
+-----BEGIN OPENSSH PRIVATE KEY-----
+<Removed for brevity>
+-----END OPENSSH PRIVATE KEY-----
+bash-5.1# cat /var/jenkins_home/secrets/initialAdminPassword
+4ba014edf8ca4db2b7262f9d81a8bbae
+bash-5.1# client_loop: send disconnect: Broken pipe
+irichie@RICHIE-PC:/mnt/c/Users/oboti/documents/it/src/Udacity-Java-Web-Dev/security and devops/cd+videos$ ssh -i "JAVA_ND_AWS.pem" ec2-user@ec2-3-84-120-54.compute-1.amazonaws.com
+Last login: Thu Feb 10 15:50:42 2022 from 41.190.8.138
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-89-215 ~]$ cat /root/.ssh/id_rsa.pub
+cat: /root/.ssh/id_rsa.pub: Permission denied
+[ec2-user@ip-172-31-89-215 ~]$ systemctl show --property ActiveState docker
+ActiveState=active
+[ec2-user@ip-172-31-89-215 ~]$ docker exec -it jenkins bash
+bash-5.1# cat /root/.ssh/id_rsa.pub
+<Removed-for-br>
+bash-5.1# exit
+exit
+[ec2-user@ip-172-31-89-215 ~]$
