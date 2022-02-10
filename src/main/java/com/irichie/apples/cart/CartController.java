@@ -4,6 +4,8 @@ import com.irichie.apples.product.Product;
 import com.irichie.apples.product.ProductService;
 import com.irichie.apples.user.User;
 import com.irichie.apples.user.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import java.util.stream.IntStream;
 @RestController
 @RequestMapping("/api/cart")
 public class CartController {
+    private static final Logger logger = LoggerFactory.getLogger(CartController.class);
     @Autowired
     private CartService cartService;
 
@@ -34,6 +37,7 @@ public class CartController {
         try {
             product = productService.find(request.getItemId());
         } catch (UnsupportedOperationException e) {
+            logger.error("Could not add to cart: Product doesn't exist {}",request.getItemId());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         Cart cart = user.getCart();
@@ -63,6 +67,7 @@ public class CartController {
         try {
             product = productService.find(request.getItemId());
         } catch (UnsupportedOperationException e) {
+            logger.error("Could not remove from cart: Product doesn't exist {}",request.getItemId());
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
         Cart cart = user.getCart();
