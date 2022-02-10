@@ -2,14 +2,20 @@ package com.irichie.apples.user;
 
 import com.irichie.apples.cart.Cart;
 import com.irichie.apples.cart.CartService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
+
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+
     @Autowired
     private UserService userService;
 
@@ -25,6 +31,7 @@ public class UserController {
         try {
             user = userService.find(id);
         } catch (UnsupportedOperationException e) {
+            logger.error("User not found: {}",e.getMessage());
           return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(user);
@@ -39,9 +46,9 @@ public class UserController {
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody UserRequestDTO request) {
         if(!isReqValid(request)) {
+            logger.error("{} account creation failed. Bad request", request.getUsername());
             return ResponseEntity.badRequest().build();
         }
-//        logger.info("{} attempts to create account", user.getUsername());
 
         User user = new User();
         Cart cart = new Cart();
@@ -53,19 +60,19 @@ public class UserController {
         user.setPassword(bCryptPasswordEncoder.encode(request.getPassword()));
 
         User savedUser = userService.create(user);
-        System.out.println(savedUser);
+        logger.info("{} created account successfully", user.getUsername());
         return ResponseEntity.ok(user);
     }
 
     private static Boolean isReqValid(UserRequestDTO request) {
         if(!new UserRequestDTO().equals(request)) {
-            System.out.println("Enter username, password & setPassword");
+            logger.error("Improperly formed user request");
             return false;
         }
 
         if(request.getPassword().length() < 8 ||
                 !request.getPassword().equals(request.getConfirmPassword())) {
-            System.out.println("Invalid password");
+            logger.error("Invalid password");
             return false;
         }
 
